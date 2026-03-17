@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veerbhadra Engineers | Coming Soon</title>
+    <meta name="description" content="Veerbhadra Engineers - Our new website is coming soon.">
+    <!-- Using Tailwind CSS for quick, professional styling without an external stylesheet -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 flex items-center justify-center min-h-screen font-sans antialiased text-gray-800 p-4">
+
+    <main class="max-w-lg w-full bg-white rounded-2xl shadow-xl p-8 md:p-12 text-center border border-gray-100">
+        
+        <!-- Engineering/Gear Icon -->
+        <div class="flex justify-center mb-6">
+            <svg class="w-16 h-16 text-blue-600 animate-[spin_10s_linear_infinite]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            </svg>
+        </div>
+
+        <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2 tracking-tight">
+            Veerbhadra Engineers
+        </h1>
+        
+        <h2 class="text-sm md:text-base text-blue-600 font-bold uppercase tracking-widest mb-6">
+            Website Coming Soon
+        </h2>
+        
+        <p class="text-gray-500 mb-8 leading-relaxed">
+            We are currently building a new digital experience. Please check back soon for updates and information about our engineering services.
+        </p>
+
+        <div class="border-t border-gray-100 pt-6 mt-2">
+            <p class="text-xs text-gray-400">
+                &copy; <span id="year"></span> Veerbhadra Engineers. All rights reserved.
+            </p>
+        </div>
+
+    </main>
+
+    <script>
+        // Set the current year dynamically for the copyright
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
