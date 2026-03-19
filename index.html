@@ -1,289 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Veerbhadra Engineers — Coming Soon</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;600;800&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veerbhadra Engineers | Coming Soon</title>
+    <meta name="description" content="Veerbhadra Engineers - Our new website is coming soon.">
+    
+    <!-- Favicon referencing the assets folder -->
+    <link rel="icon" href="assets/favicon.ico">
 
-  :root {
-    --navy:   #1C2B4A;
-    --navy2:  #243558;
-    --steel:  #3E5F8A;
-    --sky:    #5B8FC9;
-    --ice:    #A8C8E8;
-    --white:  #F5F7FA;
-    --amber:  #C4904A;
-  }
-
-  html, body {
-    height: 100%;
-    background: var(--navy);
-    color: var(--white);
-    font-family: 'DM Sans', sans-serif;
-    overflow: hidden;
-  }
-
-  /* ── Animated background grid ── */
-  body::before {
-    content: '';
-    position: fixed; inset: 0;
-    background-image:
-      linear-gradient(rgba(91,143,201,.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(91,143,201,.06) 1px, transparent 1px);
-    background-size: 48px 48px;
-    animation: gridShift 20s linear infinite;
-    pointer-events: none;
-    z-index: 0;
-  }
-  @keyframes gridShift {
-    from { background-position: 0 0; }
-    to   { background-position: 48px 48px; }
-  }
-
-  /* ── Glow orbs ── */
-  .orb {
-    position: fixed;
-    border-radius: 50%;
-    filter: blur(80px);
-    pointer-events: none;
-    z-index: 0;
-    animation: breathe 8s ease-in-out infinite;
-  }
-  .orb-1 { width: 420px; height: 420px; background: rgba(62,95,138,.35); top: -100px; right: -80px; animation-delay: 0s; }
-  .orb-2 { width: 300px; height: 300px; background: rgba(196,144,74,.18); bottom: -60px; left: -60px; animation-delay: -3s; }
-  .orb-3 { width: 200px; height: 200px; background: rgba(91,143,201,.20); top: 40%; left: 30%; animation-delay: -5s; }
-  @keyframes breathe {
-    0%,100% { transform: scale(1);   opacity: .8; }
-    50%      { transform: scale(1.15); opacity: 1; }
-  }
-
-  /* ── Layout ── */
-  .page {
-    position: relative; z-index: 1;
-    min-height: 100vh;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    padding: 2rem;
-    gap: 0;
-  }
-
-  /* ── Gear + logo mark ── */
-  .logo-wrap {
-    display: flex; align-items: center; gap: 14px;
-    margin-bottom: 2.8rem;
-    animation: fadeDown .9s cubic-bezier(.22,1,.36,1) both;
-  }
-  .gear-svg {
-    width: 56px; height: 56px;
-    filter: drop-shadow(0 0 18px rgba(91,143,201,.55));
-    animation: spinSlow 18s linear infinite;
-  }
-  @keyframes spinSlow { to { transform: rotate(360deg); } }
-
-  .brand-text { display: flex; flex-direction: column; }
-  .brand-name {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 800;
-    font-size: clamp(1.1rem, 2.5vw, 1.35rem);
-    letter-spacing: .14em;
-    color: var(--white);
-    line-height: 1;
-  }
-  .brand-tag {
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    font-style: italic;
-    font-size: .75rem;
-    color: var(--ice);
-    letter-spacing: .06em;
-    margin-top: 3px;
-  }
-
-  /* ── Main headline ── */
-  .headline {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 800;
-    font-size: clamp(4rem, 13vw, 9rem);
-    line-height: .9;
-    letter-spacing: -.02em;
-    text-align: center;
-    animation: fadeDown .9s .15s cubic-bezier(.22,1,.36,1) both;
-  }
-  .hl-top   { display: block; color: var(--white); }
-  .hl-bot   { display: block; color: transparent;
-              -webkit-text-stroke: 2px var(--steel); }
-
-  /* ── Divider ── */
-  .divider {
-    width: 64px; height: 3px;
-    background: linear-gradient(90deg, var(--steel), var(--amber));
-    border-radius: 2px;
-    margin: 2rem auto;
-    animation: fadeUp .9s .3s cubic-bezier(.22,1,.36,1) both;
-  }
-
-  /* ── Sub text ── */
-  .sub {
-    font-size: clamp(.85rem, 1.8vw, 1rem);
-    font-weight: 300;
-    color: var(--ice);
-    text-align: center;
-    max-width: 420px;
-    line-height: 1.7;
-    animation: fadeUp .9s .4s cubic-bezier(.22,1,.36,1) both;
-  }
-
-  /* ── Service pills ── */
-  .pills {
-    display: flex; flex-wrap: wrap; gap: 8px;
-    justify-content: center;
-    margin-top: 2rem;
-    animation: fadeUp .9s .55s cubic-bezier(.22,1,.36,1) both;
-  }
-  .pill {
-    padding: 5px 14px;
-    border: 1px solid rgba(91,143,201,.35);
-    border-radius: 100px;
-    font-size: .72rem;
-    letter-spacing: .06em;
-    color: var(--ice);
-    background: rgba(62,95,138,.18);
-    backdrop-filter: blur(4px);
-    transition: all .25s;
-  }
-  .pill:hover {
-    border-color: var(--amber);
-    color: var(--amber);
-    background: rgba(196,144,74,.12);
-  }
-
-  /* ── Contact strip ── */
-  .contact {
-    margin-top: 2.8rem;
-    display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center;
-    animation: fadeUp .9s .7s cubic-bezier(.22,1,.36,1) both;
-  }
-  .contact a {
-    font-size: .8rem;
-    color: var(--sky);
-    text-decoration: none;
-    letter-spacing: .04em;
-    display: flex; align-items: center; gap: 6px;
-    transition: color .2s;
-  }
-  .contact a:hover { color: var(--amber); }
-  .contact a svg { width: 14px; height: 14px; flex-shrink: 0; }
-
-  /* ── Domain badge ── */
-  .domain {
-    margin-top: 3rem;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 300;
-    font-size: .82rem;
-    letter-spacing: .18em;
-    color: rgba(168,200,232,.35);
-    text-transform: uppercase;
-    animation: fadeUp .9s .85s cubic-bezier(.22,1,.36,1) both;
-  }
-
-  /* ── Keyframes ── */
-  @keyframes fadeDown {
-    from { opacity: 0; transform: translateY(-24px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  /* ── Responsive ── */
-  @media (max-width: 480px) {
-    .hl-bot { -webkit-text-stroke-width: 1.5px; }
-    .contact { gap: 1.2rem; }
-  }
-</style>
+    <!-- Using Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configure Tailwind to use class-based dark mode -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    
+    <!-- Prevent FOUC (Flash of Unstyled Content) for dark mode -->
+    <script>
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
 </head>
-<body>
+<body class="bg-gray-50 dark:bg-gray-900 flex items-center justify-center min-h-screen font-sans antialiased text-gray-800 dark:text-gray-200 p-4 transition-colors duration-300">
 
-<!-- Background orbs -->
-<div class="orb orb-1"></div>
-<div class="orb orb-2"></div>
-<div class="orb orb-3"></div>
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle" type="button" class="absolute top-4 right-4 md:top-6 md:right-6 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 transition-colors duration-300" aria-label="Toggle Dark Mode">
+        <!-- Dark Mode Moon Icon -->
+        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+        </svg>
+        <!-- Light Mode Sun Icon -->
+        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+        </svg>
+    </button>
 
-<main class="page">
+    <main class="max-w-lg w-full bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 md:p-12 text-center border border-gray-100 dark:border-gray-700 transition-colors duration-300 relative">
+        
+        <!-- Engineering/Gear Icon -->
+        <div class="flex justify-center mb-6">
+            <svg class="w-16 h-16 text-blue-600 dark:text-blue-400 animate-[spin_10s_linear_infinite]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            </svg>
+        </div>
 
-  <!-- Logo -->
-  <div class="logo-wrap">
-    <svg class="gear-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path fill="#3E5F8A" d="
-        M50 8 L55 2 L60 8 L66 4 L69 11 L76 9 L77 17 L84 17 L83 25
-        L90 27 L87 34 L93 38 L88 44 L93 50 L88 56 L93 62 L87 66
-        L90 73 L83 75 L84 83 L77 83 L76 91 L69 89 L66 96 L60 92
-        L55 98 L50 92 L45 98 L40 92 L34 96 L31 89 L24 91 L23 83
-        L16 83 L17 75 L10 73 L13 66 L8 62 L13 56 L8 50 L13 44
-        L8 38 L13 34 L10 27 L17 25 L16 17 L23 17 L24 9 L31 11
-        L34 4 L40 8 L45 2 Z
-      "/>
-      <circle cx="50" cy="50" r="24" fill="#1C2B4A"/>
-      <circle cx="50" cy="50" r="20" fill="none" stroke="#5B8FC9" stroke-width="2.5"/>
-      <!-- Power symbol -->
-      <path d="M50 32 L50 48" stroke="#5B8FC9" stroke-width="3.5" stroke-linecap="round"/>
-      <path d="M38 40 A16 16 0 1 0 62 40" stroke="#5B8FC9" stroke-width="3.5" stroke-linecap="round" fill="none"/>
-      <circle cx="50" cy="50" r="4" fill="#C4904A"/>
-    </svg>
-    <div class="brand-text">
-      <span class="brand-name">VEERBHADRA ENGINEERS</span>
-      <span class="brand-tag">Your Vision, Our Execution</span>
-    </div>
-  </div>
+        <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white mb-2 tracking-tight transition-colors duration-300">
+            Veerbhadra Engineers
+        </h1>
+        
+        <h2 class="text-sm md:text-base text-blue-600 dark:text-blue-400 font-bold uppercase tracking-widest mb-6 transition-colors duration-300">
+            Website Coming Soon
+        </h2>
+        
+        <p class="text-gray-500 dark:text-gray-400 mb-8 leading-relaxed transition-colors duration-300">
+            We are currently building a new digital experience. Please check back soon for updates and information about our engineering services.
+        </p>
 
-  <!-- Headline -->
-  <h1 class="headline">
-    <span class="hl-top">COMING</span>
-    <span class="hl-bot">SOON</span>
-  </h1>
+        <div class="border-t border-gray-100 dark:border-gray-700 pt-6 mt-2 transition-colors duration-300">
+            <p class="text-xs text-gray-400 dark:text-gray-500 transition-colors duration-300">
+                &copy; <span id="year"></span> Veerbhadra Engineers. All rights reserved.
+            </p>
+        </div>
 
-  <div class="divider"></div>
+    </main>
 
-  <!-- Sub text -->
-  <p class="sub">
-    Our website is under construction.<br>
-    We are working hard to bring you something great.
-  </p>
+    <script>
+        // Set the current year dynamically for the copyright
+        document.getElementById('year').textContent = new Date().getFullYear();
 
-  <!-- Service pills -->
-  <div class="pills">
-    <span class="pill">Solar Panel Cleaning</span>
-    <span class="pill">Electrical Maintenance</span>
-    <span class="pill">HVAC Services</span>
-    <span class="pill">Infrastructure</span>
-    <span class="pill">UPS Systems</span>
-  </div>
+        // Dark Mode Toggle Logic
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
 
-  <!-- Contact -->
-  <div class="contact">
-    <a href="tel:+918007717684">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.15a16 16 0 006.94 6.94l1.51-1.52a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
-      </svg>
-      +91 8007717684
-    </a>
-    <a href="mailto:veerbhadra24.engineers@gmail.com">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-        <polyline points="22,6 12,13 2,6"/>
-      </svg>
-      veerbhadra24.engineers@gmail.com
-    </a>
-  </div>
+        // Change the icons inside the button based on previous settings
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcon.classList.remove('hidden');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
 
-  <!-- Domain -->
-  <p class="domain">veerbhadraengineers.com</p>
+        const themeToggleBtn = document.getElementById('theme-toggle');
 
-</main>
+        themeToggleBtn.addEventListener('click', function() {
+            // Toggle icons inside button
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            // If set via local storage previously
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+
+            // If NOT set via local storage previously
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+    </script>
 </body>
 </html>
