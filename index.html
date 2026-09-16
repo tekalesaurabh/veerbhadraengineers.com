@@ -1,120 +1,470 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veerbhadra Engineers | Coming Soon</title>
-    <meta name="description" content="Veerbhadra Engineers - Our new website is coming soon.">
-    
-    <!-- Favicon referencing the assets folder -->
-    <link rel="icon" href="assets/favicon.ico">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Veerbhadra Engineers | Industrial Services & Engineering Consultancy</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  body { font-family: 'Inter', sans-serif; }
+  .smooth-scroll { scroll-behavior: smooth; }
 
-    <!-- Using Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Configure Tailwind to use class-based dark mode -->
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-        }
-    </script>
-    
-    <!-- Prevent FOUC (Flash of Unstyled Content) for dark mode -->
-    <script>
-        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
-    </script>
+  /* Custom Marquee Animation */
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee 25s linear infinite;
+  }
+</style>
 </head>
-<body class="bg-gray-50 dark:bg-gray-900 flex items-center justify-center min-h-screen font-sans antialiased text-gray-800 dark:text-gray-200 p-4 transition-colors duration-300">
+<body class="bg-gray-50 text-gray-800 smooth-scroll">
 
-    <!-- Theme Toggle Button -->
-    <button id="theme-toggle" type="button" class="absolute top-4 right-4 md:top-6 md:right-6 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 transition-colors duration-300" aria-label="Toggle Dark Mode">
-        <!-- Dark Mode Moon Icon -->
-        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-        </svg>
-        <!-- Light Mode Sun Icon -->
-        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
-        </svg>
-    </button>
-
-    <main class="max-w-lg w-full bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 md:p-12 text-center border border-gray-100 dark:border-gray-700 transition-colors duration-300 relative">
-        
-        <!-- Engineering/Gear Icon -->
-        <div class="flex justify-center mb-6">
-            <svg class="w-16 h-16 text-blue-600 dark:text-blue-400 animate-[spin_10s_linear_infinite]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-            </svg>
+  <!-- HEADER -->
+  <header class="bg-white shadow-md sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+      <!-- VE Logo Badge -->
+      <a href="#" class="flex items-center gap-3">
+        <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center p-1 border border-slate-200 shadow-sm overflow-hidden">
+          <img src="logo.png" alt="Veerbhadra Engineers Logo" class="w-full h-full object-contain">
         </div>
+        <div>
+          <span class="block text-xl font-bold text-slate-900 tracking-tight leading-none">VEERBHADRA</span>
+          <span class="block text-xs font-semibold text-slate-900 tracking-widest uppercase mt-0.5">Engineers</span>
+        </div>
+      </a>
 
-        <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white mb-2 tracking-tight transition-colors duration-300">
-            Veerbhadra Engineers
+      <!-- Navigation -->
+      <nav class="hidden md:flex items-center space-x-8 font-medium text-sm text-slate-700">
+        <a href="#about" class="hover:text-amber-600 transition">About</a>
+        <a href="#services" class="hover:text-amber-600 transition">Services</a>
+        <a href="#compliance" class="hover:text-amber-600 transition">Compliance</a>
+        <a href="#contact" class="hover:text-amber-600 transition">Contact</a>
+      </nav>
+
+      <!-- CTA -->
+      <a href="#contact" class="hidden sm:inline-flex items-center bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold px-5 py-2.5 rounded-lg transition shadow-sm text-sm">
+        Request Quote <i class="fa-solid fa-arrow-right ml-2"></i>
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative bg-slate-900 text-white py-20 px-4">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <span class="inline-block bg-amber-500/20 text-amber-400 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4 border border-amber-500/30">
+          Established 2017 &bull; PAN India Services
+        </span>
+        <h1 class="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-4">
+          Your Vision, <span class="text-amber-400">Our Execution</span>
         </h1>
-        
-        <h2 class="text-sm md:text-base text-blue-600 dark:text-blue-400 font-bold uppercase tracking-widest mb-6 transition-colors duration-300">
-            Website Coming Soon
-        </h2>
-        
-        <p class="text-gray-500 dark:text-gray-400 mb-8 leading-relaxed transition-colors duration-300">
-            We are currently building a new digital experience. Please check back soon for updates and information about our engineering services.
+        <p class="text-slate-300 text-lg mb-8 leading-relaxed">
+          Veerbhadra Engineers delivers end-to-end industrial electrical maintenance, solar panel care, HVAC optimization, and industrial infrastructure services across India.
         </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#services" class="bg-slate-800 hover:bg-slate-700 text-white font-semibold px-6 py-3 rounded-lg border border-slate-700 transition">
+            Explore Services
+          </a>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="bg-slate-800/80 p-6 rounded-xl border border-slate-700">
+          <i class="fa-solid fa-solar-panel text-3xl text-amber-400 mb-3"></i>
+          <h3 class="font-bold text-lg text-white mb-1">Solar AMC</h3>
+          <p class="text-xs text-slate-400">Rooftop solar panel cleaning & maintenance contracts.</p>
+        </div>
+        <div class="bg-slate-800/80 p-6 rounded-xl border border-slate-700">
+          <i class="fa-solid fa-bolt text-3xl text-amber-400 mb-3"></i>
+          <h3 class="font-bold text-lg text-white mb-1">Electrical AMC</h3>
+          <p class="text-xs text-slate-400">LT/HT Panels, VCB, Transformers & Earth Pits.</p>
+        </div>
+        <div class="bg-slate-800/80 p-6 rounded-xl border border-slate-700">
+          <i class="fa-solid fa-fan text-3xl text-amber-400 mb-3"></i>
+          <h3 class="font-bold text-lg text-white mb-1">HVAC Services</h3>
+          <p class="text-xs text-slate-400">Chillers, EC Fans retrofit & energy auditing.</p>
+        </div>
+        <div class="bg-slate-800/80 p-6 rounded-xl border border-slate-700">
+          <i class="fa-solid fa-warehouse text-3xl text-amber-400 mb-3"></i>
+          <h3 class="font-bold text-lg text-white mb-1">Infrastructure</h3>
+          <p class="text-xs text-slate-400">Roof sheeting, industrial sheds & ventilators.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="border-t border-gray-100 dark:border-gray-700 pt-6 mt-2 transition-colors duration-300">
-            <p class="text-xs text-gray-400 dark:text-gray-500 transition-colors duration-300">
-                &copy; <span id="year"></span> Veerbhadra Engineers. All rights reserved.
-            </p>
+  <!-- ABOUT SECTION -->
+  <section id="about" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center mb-12">
+        <h2 class="text-3xl font-bold text-slate-900">About Veerbhadra Engineers</h2>
+        <p class="text-slate-600 mt-3">Driven by technical expertise and industry know-how to deliver customized industrial solutions nationwide.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 text-center">
+        <div class="p-6 bg-gray-50 rounded-xl border border-gray-100 shadow-sm">
+          <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">
+            <i class="fa-solid fa-award"></i>
+          </div>
+          <h3 class="font-bold text-slate-900 mb-2">Licensed Experts</h3>
+          <p class="text-sm text-slate-600">Electrical License #50619 (dated 14/02/2013) ensuring full regulatory compliance.</p>
+        </div>
+        <div class="p-6 bg-gray-50 rounded-xl border border-gray-100 shadow-sm">
+          <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">
+            <i class="fa-solid fa-map-location-dot"></i>
+          </div>
+          <h3 class="font-bold text-slate-900 mb-2">PAN India Execution</h3>
+          <p class="text-sm text-slate-600">Serving industrial plants across all regions of India with high standards.</p>
+        </div>
+        <div class="p-6 bg-gray-50 rounded-xl border border-gray-100 shadow-sm">
+          <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">
+            <i class="fa-solid fa-user-tie"></i>
+          </div>
+          <h3 class="font-bold text-slate-900 mb-2">Proprietorship</h3>
+          <p class="text-sm text-slate-600">Led by Saurabh Tekale, focusing on direct accountability and technical excellence.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES MARQUEE SECTION -->
+  <section id="services" class="py-16 bg-slate-100 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 mb-8 text-center">
+      <h2 class="text-3xl font-bold text-slate-900">Our Comprehensive Services</h2>
+      <p class="text-slate-600 mt-2">End-to-end industrial engineering and maintenance solutions.</p>
+    </div>
+
+    <!-- Marquee Track Wrapper -->
+    <div class="relative w-full overflow-hidden group">
+      <div class="flex gap-6 animate-marquee group-hover:[animation-play-state:paused] w-max">
+        
+        <!-- ================= CARD SET 1 ================= -->
+
+        <!-- 1. Solar AMC & Cleaning Card -->
+        <div class="w-80 bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 flex flex-col justify-between shrink-0">
+          <div>
+            <img src="https://coldwellenergy.com/wp-content/uploads/2023/01/three-workers-cleaning-solar-panels.jpg?auto=format&fit=crop&w=800&q=80" alt="Solar Panel AMC and Cleaning" class="w-full h-48 object-cover">
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-3">
+                <h3 class="font-bold text-lg text-slate-900">Solar AMC & Cleaning</h3>
+                <span class="bg-amber-100 text-amber-800 text-xs px-2 py-0.5 rounded font-semibold">AMC Available</span>
+              </div>
+              <ul class="text-xs text-slate-600 space-y-2 mb-4">
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> Routine cleaning of rooftop solar panels</li>
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> Annual Maintenance Contracts (AMC)</li>
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> Solar plant efficiency optimization</li>
+              </ul>
+            </div>
+          </div>
+          <div class="p-5 pt-0">
+            <a href="https://wa.me/918007717684?text=I%20want%20to%20inquire%20about%20Solar%20AMC%20and%20Cleaning" target="_blank" class="block text-center bg-slate-900 hover:bg-slate-800 text-white font-semibold py-2 rounded-lg text-xs transition">Inquire for Solar AMC</a>
+          </div>
         </div>
 
-    </main>
+        <!-- 2. Electrical Maintenance Card -->
+        <div class="w-80 bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 flex flex-col justify-between shrink-0">
+          <div>
+            <img src="https://cdn.create.vista.com/api/media/small/14731059/stock-photo-electrician-peeling-off-wires?auto=format&fit=crop&w=800&q=80" alt="Electrical Panel Maintenance" class="w-full h-48 object-cover">
+            <div class="p-5">
+              <h3 class="font-bold text-lg text-slate-900 mb-3">Electrical Maintenance</h3>
+              <ul class="text-xs text-slate-600 space-y-2 mb-4">
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> LT/HT Panel & APFC maintenance</li>
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> Power Cable laying & terminations</li>
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> Earth Pits as per IS standards</li>
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> ACB/VCB servicing & Transformer testing</li>
+              </ul>
+            </div>
+          </div>
+          <div class="p-5 pt-0">
+            <a href="https://wa.me/918007717684?text=I%20want%20to%20inquire%20about%20Electrical%20Maintenance" target="_blank" class="block text-center bg-slate-900 hover:bg-slate-800 text-white font-semibold py-2 rounded-lg text-xs transition">Inquire for Electrical</a>
+          </div>
+        </div>
 
-    <script>
-        // Set the current year dynamically for the copyright
-        document.getElementById('year').textContent = new Date().getFullYear();
+        <!-- 3. HVAC & Chillers Card -->
+        <div class="w-80 bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 flex flex-col justify-between shrink-0">
+          <div>
+            <img src="https://ipcs.com.co/assets/uploads/solution-6a33f24f45fe3.png?auto=format&fit=crop&w=800&q=80" alt="HVAC & Chillers Services" class="w-full h-48 object-cover">
+            <div class="p-5">
+              <h3 class="font-bold text-lg text-slate-900 mb-3">HVAC & Chillers</h3>
+              <ul class="text-xs text-slate-600 space-y-2 mb-4">
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> Selection, installation & maintenance of AC/Chillers</li>
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> Energy audits for power conservation</li>
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> EC Fans installation (30%+ energy savings)</li>
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> AHU Filter supply & maintenance</li>
+              </ul>
+            </div>
+          </div>
+          <div class="p-5 pt-0">
+            <a href="https://wa.me/918007717684?text=I%20want%20to%20inquire%20about%20HVAC%20and%20Chillers" target="_blank" class="block text-center bg-slate-900 hover:bg-slate-800 text-white font-semibold py-2 rounded-lg text-xs transition">Inquire for HVAC & Chillers</a>
+          </div>
+        </div>
 
-        // Dark Mode Toggle Logic
-        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
-        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        <!-- 4. Infrastructure Services Card -->
+        <div class="w-80 bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 flex flex-col justify-between shrink-0">
+          <div>
+            <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=194,fit=crop,trim=97.72762645914398;16.27906976744186;97.72762645914398;0/Yle4a8y4M0Hy3XKZ/turbo-fan-with-transparent-sheet-mnl4xQ002quynMXR.jpg?auto=format&fit=crop&w=800&q=80" alt="Infrastructure Services" class="w-full h-44 object-cover">
+            <div class="p-5">
+              <h3 class="font-bold text-lg text-slate-900 mb-3">Infrastructure Services</h3>
+              <ul class="text-xs text-slate-600 space-y-2 mb-4">
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> Roofing work as per industry standards</li>
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> PPGI Coloured Roof sheeting</li>
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> Polycarbonate roof sheets installation</li>
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> Fabrication of industrial sheds</li>
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> Supply & Installation of Turbo Ventilators</li>
+              </ul>
+            </div>
+          </div>
+          <div class="p-5 pt-0">
+            <a href="https://wa.me/918007717684?text=I%20want%20to%20inquire%20about%20Infrastructure%20Services" target="_blank" class="block text-center bg-slate-900 hover:bg-slate-800 text-white font-semibold py-2 rounded-lg text-xs transition">Inquire for Infrastructure</a>
+          </div>
+        </div>
 
-        // Change the icons inside the button based on previous settings
-        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            themeToggleLightIcon.classList.remove('hidden');
-        } else {
-            themeToggleDarkIcon.classList.remove('hidden');
-        }
+        <!-- 5. UPS Power Systems Card -->
+        <div class="w-80 bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 flex flex-col justify-between shrink-0">
+          <div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQw2SuYP5y30zKTyq6zM8PkXlpC9q1AbZvhTrLP97dpHPKRMEvnX74YBl8f&s=10.png?auto=format&fit=crop&w=800&q=80" alt="UPS Power Systems" class="w-full h-44 object-cover">
+            <div class="p-5">
+              <h3 class="font-bold text-lg text-slate-900 mb-3">UPS Power Systems</h3>
+              <ul class="text-xs text-slate-600 space-y-2 mb-4">
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> Supply & installation of industrial UPS systems</li>
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> Power backup consultation & testing</li>
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> Routine upkeep & battery system integration</li>
+              </ul>
+            </div>
+          </div>
+          <div class="p-5 pt-0">
+            <a href="https://wa.me/918007717684?text=I%20want%20to%20inquire%20about%20UPS%20Systems" target="_blank" class="block text-center bg-slate-900 hover:bg-slate-800 text-white font-semibold py-2 rounded-lg text-xs transition">Inquire for UPS Systems</a>
+          </div>
+        </div>
 
-        const themeToggleBtn = document.getElementById('theme-toggle');
+        <!-- ================= CARD SET 2 (DUPLICATED FOR SEAMLESS LOOP) ================= -->
 
-        themeToggleBtn.addEventListener('click', function() {
-            // Toggle icons inside button
-            themeToggleDarkIcon.classList.toggle('hidden');
-            themeToggleLightIcon.classList.toggle('hidden');
+        <!-- 1. Solar AMC & Cleaning Card -->
+        <div class="w-80 bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 flex flex-col justify-between shrink-0" aria-hidden="true">
+          <div>
+            <img src="https://coldwellenergy.com/wp-content/uploads/2023/01/three-workers-cleaning-solar-panels.jpg?auto=format&fit=crop&w=800&q=80" alt="Solar Panel AMC and Cleaning" class="w-full h-48 object-cover">
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-3">
+                <h3 class="font-bold text-lg text-slate-900">Solar AMC & Cleaning</h3>
+                <span class="bg-amber-100 text-amber-800 text-xs px-2 py-0.5 rounded font-semibold">AMC Available</span>
+              </div>
+              <ul class="text-xs text-slate-600 space-y-2 mb-4">
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> Routine cleaning of rooftop solar panels</li>
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> Annual Maintenance Contracts (AMC)</li>
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> Solar plant efficiency optimization</li>
+              </ul>
+            </div>
+          </div>
+          <div class="p-5 pt-0">
+            <a href="https://wa.me/918007717684?text=I%20want%20to%20inquire%20about%20Solar%20AMC%20and%20Cleaning" target="_blank" class="block text-center bg-slate-900 hover:bg-slate-800 text-white font-semibold py-2 rounded-lg text-xs transition">Inquire for Solar AMC</a>
+          </div>
+        </div>
 
-            // If set via local storage previously
-            if (localStorage.getItem('color-theme')) {
-                if (localStorage.getItem('color-theme') === 'light') {
-                    document.documentElement.classList.add('dark');
-                    localStorage.setItem('color-theme', 'dark');
-                } else {
-                    document.documentElement.classList.remove('dark');
-                    localStorage.setItem('color-theme', 'light');
-                }
+        <!-- 2. Electrical Maintenance Card -->
+        <div class="w-80 bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 flex flex-col justify-between shrink-0" aria-hidden="true">
+          <div>
+            <img src="https://cdn.create.vista.com/api/media/small/14731059/stock-photo-electrician-peeling-off-wires?auto=format&fit=crop&w=800&q=80" alt="Electrical Panel Maintenance" class="w-full h-48 object-cover">
+            <div class="p-5">
+              <h3 class="font-bold text-lg text-slate-900 mb-3">Electrical Maintenance</h3>
+              <ul class="text-xs text-slate-600 space-y-2 mb-4">
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> LT/HT Panel & APFC maintenance</li>
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> Power Cable laying & terminations</li>
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> Earth Pits as per IS standards</li>
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> ACB/VCB servicing & Transformer testing</li>
+              </ul>
+            </div>
+          </div>
+          <div class="p-5 pt-0">
+            <a href="https://wa.me/918007717684?text=I%20want%20to%20inquire%20about%20Electrical%20Maintenance" target="_blank" class="block text-center bg-slate-900 hover:bg-slate-800 text-white font-semibold py-2 rounded-lg text-xs transition">Inquire for Electrical</a>
+          </div>
+        </div>
 
-            // If NOT set via local storage previously
-            } else {
-                if (document.documentElement.classList.contains('dark')) {
-                    document.documentElement.classList.remove('dark');
-                    localStorage.setItem('color-theme', 'light');
-                } else {
-                    document.documentElement.classList.add('dark');
-                    localStorage.setItem('color-theme', 'dark');
-                }
-            }
-        });
-    </script>
+        <!-- 3. HVAC & Chillers Card -->
+        <div class="w-80 bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 flex flex-col justify-between shrink-0" aria-hidden="true">
+          <div>
+            <img src="https://ipcs.com.co/assets/uploads/solution-6a33f24f45fe3.png?auto=format&fit=crop&w=800&q=80" alt="HVAC & Chillers Services" class="w-full h-48 object-cover">
+            <div class="p-5">
+              <h3 class="font-bold text-lg text-slate-900 mb-3">HVAC & Chillers</h3>
+              <ul class="text-xs text-slate-600 space-y-2 mb-4">
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> Selection, installation & maintenance of AC/Chillers</li>
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> Energy audits for power conservation</li>
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> EC Fans installation (30%+ energy savings)</li>
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> AHU Filter supply & maintenance</li>
+              </ul>
+            </div>
+          </div>
+          <div class="p-5 pt-0">
+            <a href="https://wa.me/918007717684?text=I%20want%20to%20inquire%20about%20HVAC%20and%20Chillers" target="_blank" class="block text-center bg-slate-900 hover:bg-slate-800 text-white font-semibold py-2 rounded-lg text-xs transition">Inquire for HVAC & Chillers</a>
+          </div>
+        </div>
+
+        <!-- 4. Infrastructure Services Card -->
+        <div class="w-80 bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 flex flex-col justify-between shrink-0" aria-hidden="true">
+          <div>
+            <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=194,fit=crop,trim=97.72762645914398;16.27906976744186;97.72762645914398;0/Yle4a8y4M0Hy3XKZ/turbo-fan-with-transparent-sheet-mnl4xQ002quynMXR.jpg?auto=format&fit=crop&w=800&q=80" alt="Infrastructure Services" class="w-full h-44 object-cover">
+            <div class="p-5">
+              <h3 class="font-bold text-lg text-slate-900 mb-3">Infrastructure Services</h3>
+              <ul class="text-xs text-slate-600 space-y-2 mb-4">
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> Roofing work as per industry standards</li>
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> PPGI Coloured Roof sheeting</li>
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> Polycarbonate roof sheets installation</li>
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> Fabrication of industrial sheds</li>
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> Supply & Installation of Turbo Ventilators</li>
+              </ul>
+            </div>
+          </div>
+          <div class="p-5 pt-0">
+            <a href="https://wa.me/918007717684?text=I%20want%20to%20inquire%20about%20Infrastructure%20Services" target="_blank" class="block text-center bg-slate-900 hover:bg-slate-800 text-white font-semibold py-2 rounded-lg text-xs transition">Inquire for Infrastructure</a>
+          </div>
+        </div>
+
+        <!-- 5. UPS Power Systems Card -->
+        <div class="w-80 bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 flex flex-col justify-between shrink-0" aria-hidden="true">
+          <div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQw2SuYP5y30zKTyq6zM8PkXlpC9q1AbZvhTrLP97dpHPKRMEvnX74YBl8f&s=10.png?auto=format&fit=crop&w=800&q=80" alt="UPS Power Systems" class="w-full h-44 object-cover">
+            <div class="p-5">
+              <h3 class="font-bold text-lg text-slate-900 mb-3">UPS Power Systems</h3>
+              <ul class="text-xs text-slate-600 space-y-2 mb-4">
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> Supply & installation of industrial UPS systems</li>
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> Power backup consultation & testing</li>
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> Routine upkeep & battery system integration</li>
+              </ul>
+            </div>
+          </div>
+          <div class="p-5 pt-0">
+            <a href="https://wa.me/918007717684?text=I%20want%20to%20inquire%20about%20UPS%20Systems" target="_blank" class="block text-center bg-slate-900 hover:bg-slate-800 text-white font-semibold py-2 rounded-lg text-xs transition">Inquire for UPS Systems</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- LEGAL & COMPLIANCE SECTION -->
+  <section id="compliance" class="py-12 bg-white border-t border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-2xl font-bold text-slate-900 text-center mb-8">Legal Compliance & Business Details</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+        <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+          <span class="block text-xs text-slate-500 font-semibold uppercase">GSTIN</span>
+          <span class="block text-sm font-bold text-slate-800 mt-1">27ASKPT6880H1ZZ</span>
+        </div>
+        <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+          <span class="block text-xs text-slate-500 font-semibold uppercase">PAN Number</span>
+          <span class="block text-sm font-bold text-slate-800 mt-1">ASKPT6880H1ZZ</span>
+        </div>
+        <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+          <span class="block text-xs text-slate-500 font-semibold uppercase">Electrical License</span>
+          <span class="block text-sm font-bold text-slate-800 mt-1">50619 (14/02/2013)</span>
+        </div>
+        <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+          <span class="block text-xs text-slate-500 font-semibold uppercase">Standards Compliance</span>
+          <span class="block text-sm font-bold text-slate-800 mt-1">IS Standards</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT & WHATSAPP FORM -->
+  <section id="contact" class="py-16 bg-slate-900 text-white">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-3xl font-bold text-white mb-4">Get In Touch</h2>
+          <p class="text-slate-300 mb-6">Contact below numbers for immediate consultation and site estimates across India.</p>
+          
+          <div class="space-y-4 text-slate-300">
+            <div class="flex items-start">
+              <i class="fa-solid fa-user text-amber-400 mt-1 mr-3"></i>
+              <div>
+                <span class="block text-xs text-slate-400">Proprietor</span>
+                <span class="font-bold text-white">Saurabh Tekale</span>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <i class="fa-solid fa-location-dot text-amber-400 mt-1 mr-3"></i>
+              <div>
+                <span class="block text-xs text-slate-400">Head Office</span>
+                <span>Gulmohar Symphony, Flat 505, Survey No. 32, Plot 4 to 8, Tukaram Nagar, Kharadi, Pune - 411014, Maharashtra, India</span>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <i class="fa-solid fa-phone text-amber-400 mt-1 mr-3"></i>
+              <div>
+                <span class="block text-xs text-slate-400">Phone Support</span>
+                <span>+91 8007717684 / +91 9823921132</span>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <i class="fa-solid fa-envelope text-amber-400 mt-1 mr-3"></i>
+              <div>
+                <span class="block text-xs text-slate-400">Email Inquiry</span>
+                <span>veerbhadra24.engineers@gmail.com</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- WhatsApp Form -->
+        <div class="bg-slate-800 p-6 rounded-xl border border-slate-700">
+          <h3 class="text-xl font-bold text-white mb-4">Send Instant WhatsApp Inquiry</h3>
+          <form id="whatsappForm" onsubmit="sendToWhatsApp(event)" class="space-y-4">
+            <div>
+              <label class="block text-xs text-slate-300 mb-1">Your Name</label>
+              <input type="text" id="name" required class="w-full bg-slate-900 border border-slate-700 rounded p-2.5 text-white text-sm focus:outline-none focus:border-amber-500">
+            </div>
+            <div>
+              <label class="block text-xs text-slate-300 mb-1">Service Required</label>
+              <select id="service" class="w-full bg-slate-900 border border-slate-700 rounded p-2.5 text-white text-sm focus:outline-none focus:border-amber-500">
+                <option value="" disabled selected hidden>Select a Service...</option>
+                <option value="Solar Panel AMC & Cleaning">Solar Panel AMC & Cleaning</option>
+                <option value="HVAC & Chillers">HVAC & Chillers</option>
+                <option value="Electrical Maintenance">Electrical LT/HT Maintenance</option>
+                <option value="Infrastructure Services">Roofing & Shed Infrastructure</option>
+                <option value="UPS Systems">UPS Power Systems</option>
+                <option value="Other Inquiry">Other Inquiry</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs text-slate-300 mb-1">Message / Requirements</label>
+              <textarea id="message" rows="3" required class="w-full bg-slate-900 border border-slate-700 rounded p-2.5 text-white text-sm focus:outline-none focus:border-amber-500"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-lg transition flex items-center justify-center">
+              <i class="fa-brands fa-whatsapp text-lg mr-2"></i> Send to WhatsApp
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 text-slate-500 text-xs py-6 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <p>&copy; 2026 Veerbhadra Engineers. All Rights Reserved. | Your Vision, Our Execution</p>
+    </div>
+  </footer>
+
+  <script>
+    function sendToWhatsApp(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const service = document.getElementById('service').value;
+      const msg = document.getElementById('message').value;
+      
+      const text = `Hello Veerbhadra Engineers,%0A%0AMy Name: ${encodeURIComponent(name)}%0AService Needed: ${encodeURIComponent(service)}%0ARequirements: ${encodeURIComponent(msg)}`;
+      window.open(`https://wa.me/918007717684?text=${text}`, '_blank');
+    }
+  </script>
 </body>
 </html>
