@@ -8,24 +8,32 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
+ <style>
   body { font-family: 'Inter', sans-serif; }
   .smooth-scroll { scroll-behavior: smooth; }
 
-  /* Custom Marquee Animation */
-  @keyframes marquee {
-    0% {
-      transform: translateX(0%);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
+  /* Hide horizontal scrollbar */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 
-  .animate-marquee {
+  /* REPLACED MARQUEE STYLES FOR MANUAL SWIPE + AUTO LOOP */
+  .marquee-viewport {
+    overflow-x: auto;
+    scroll-behavior: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .marquee-track {
     display: flex;
     width: max-content;
-    animation: marquee 30s linear infinite;
+    will-change: transform;
   }
+</style>
 </style>
 </head>
 <body class="bg-gray-50 text-gray-800 smooth-scroll">
@@ -35,12 +43,12 @@
     <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
       <!-- VE Logo Badge -->
       <a href="#" class="flex items-center gap-3">
-        <div class="w-14 h-14 bg-white rounded-lg flex items-center justify-center p-1 border border-slate-200 shadow-sm overflow-hidden">
+        <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center p-1 border border-slate-200 shadow-sm overflow-hidden">
           <img src="https://github.com/tekalesaurabh/veerbhadraengineers.com/blob/main/logo.jpg?raw=true" alt="Veerbhadra Engineers Logo" class="w-full h-full object-contain">
         </div>
         <div>
-          <span class="block text-xl font-bold text-sky-900 tracking-tight leading-none">VEERBHADRA</span>
-          <span class="block text-xl font-bold text-sky-900 tracking-tight leading-none">ENGINEERS</span>
+          <span class="block text-xl font-bold text-slate-900 tracking-tight leading-none">VEERBHADRA</span>
+          <span class="block text-xs font-semibold text-slate-900 tracking-widest uppercase mt-0.5">Engineers</span>
         </div>
       </a>
 
@@ -70,7 +78,7 @@
           Your Vision, <span class="text-amber-400">Our Execution</span>
         </h1>
         <p class="text-slate-300 text-lg mb-8 leading-relaxed">
-          Veerbhadra Engineers delivers end-to-end industrial electrical maintenance, solar panel care, HVAC optimization, and industrial infrastructure services across India.
+          Veerbhadra Engineers delivers end-to-end industrial Electrical Maintenance,Transformer Maintenance, Solar Panel care, HVAC optimization,Power System Studies and Industrial infrastructure services across India.
         </p>
         <div class="flex flex-wrap gap-4">
           <a href="#services" class="bg-slate-800 hover:bg-slate-700 text-white font-semibold px-6 py-3 rounded-lg border border-slate-700 transition">
@@ -84,10 +92,15 @@
           <h3 class="font-bold text-lg text-white mb-1">Solar AMC</h3>
           <p class="text-xs text-slate-400">Rooftop solar panel cleaning & maintenance contracts.</p>
         </div>
+          <div class="bg-slate-800/80 p-6 rounded-xl border border-slate-700">
+          <i class="fa-solid fa-solar-panel text-3xl text-amber-400 mb-3"></i>
+          <h3 class="font-bold text-lg text-white mb-1">Transformer Maintenance</h3>
+          <p class="text-xs text-slate-400">Transformer inspection, testing, and repair services,OLTC oil filtrations with BDV Test.</p>
+        </div>
         <div class="bg-slate-800/80 p-6 rounded-xl border border-slate-700">
           <i class="fa-solid fa-bolt text-3xl text-amber-400 mb-3"></i>
           <h3 class="font-bold text-lg text-white mb-1">Electrical AMC</h3>
-          <p class="text-xs text-slate-400">LT/HT Panels, VCB, Transformers & Earth Pits.</p>
+          <p class="text-xs text-slate-400">LT/HT Panel Maintenance,ACB/VCB Servicing,Cable laying with terminations,Earth Pits.</p>
         </div>
         <div class="bg-slate-800/80 p-6 rounded-xl border border-slate-700">
           <i class="fa-solid fa-fan text-3xl text-amber-400 mb-3"></i>
@@ -98,6 +111,11 @@
           <i class="fa-solid fa-warehouse text-3xl text-amber-400 mb-3"></i>
           <h3 class="font-bold text-lg text-white mb-1">Infrastructure</h3>
           <p class="text-xs text-slate-400">Roof sheeting, industrial sheds & ventilators.</p>
+        </div>
+          <div class="bg-slate-800/80 p-6 rounded-xl border border-slate-700">
+          <i class="fa-solid fa-warehouse text-3xl text-amber-400 mb-3"></i>
+          <h3 class="font-bold text-lg text-white mb-1">Power System Studies</h3>
+          <p class="text-xs text-slate-400">Short Circuit Analysis,Relay Coordination,Arc Flash Analysis,Dynamic Motor Starting Study</p>
         </div>
       </div>
     </div>
@@ -137,20 +155,38 @@
     </div>
   </section>
 
-  <!-- SERVICES MARQUEE SECTION -->
-  <section id="services" class="py-16 bg-slate-100 overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 mb-8 text-center">
-      <h2 class="text-3xl font-bold text-slate-900">Our Comprehensive Services</h2>
-      <p class="text-slate-600 mt-2">End-to-end industrial engineering and maintenance solutions.</p>
+  <!-- SERVICES SWIPE & MARQUEE SECTION -->
+  <section id="services" class="py-12 md:py-16 bg-slate-100 overflow-hidden w-full relative">
+    <div class="max-w-7xl mx-auto px-4 mb-6 md:mb-8 text-center">
+      <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">Our Services</h2>
+      <p class="text-slate-600 text-xs sm:text-sm mt-2">End-to-end industrial engineering and maintenance solutions.</p>
     </div>
 
-    <!-- Marquee Track Wrapper -->
-    <div class="relative w-full overflow-hidden group">
-      <div class="flex gap-6 animate-marquee group-hover:[animation-play-state:paused] w-max">
+    <!-- Responsive Container (Continuous Marquee on Mobile & Desktop + Touch Support) -->
+    <div id="marqueeViewport" class="marquee-viewport touch-scroll-container no-scrollbar w-full py-2">
+      <div id="marqueeTrack" class="marquee-track flex gap-4 sm:gap-6 px-4">
         
         <!-- ================= CARD SET 1 ================= -->
 
-        <!-- 1. Solar AMC & Cleaning Card -->
+                        <!-- 1. Transformer Maintenance Card -->
+        <div class="w-80 bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 flex flex-col justify-between shrink-0" aria-hidden="true">
+          <div>
+            <img src="https://5.imimg.com/data5/SELLER/Default/2021/11/TV/XW/BP/58482/630-kva-distribution-transformer-1000x1000.JPG?auto=format&fit=crop&w=800&q=80" alt="Transformer Maintenance" class="w-full h-48 object-cover">
+            <div class="p-5">
+              <h3 class="font-bold text-lg text-slate-900 mb-3">Transformer Maintenance</h3>
+              <ul class="text-xs text-slate-600 space-y-2 mb-4">
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> Transformer Maintenance, Testing & Oil Filtrations</li>
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> OLTC oil filtrations with BDV Test</li>
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> Transformer Voltage ratio test, Magnetic balance test, Magnetizing current test, vector group test & insulation resistance test</li>
+              </ul>
+            </div>
+          </div>
+          <div class="p-5 pt-0">
+            <a href="https://wa.me/918007717684?text=I%20want%20to%20inquire%20about%20Transformer%20Maintenance" target="_blank" class="block text-center bg-slate-900 hover:bg-slate-800 text-white font-semibold px-6 py-3 rounded-lg text-xs transition">Inquire for Transformer Maintenance</a>
+          </div>
+        </div>
+        
+        <!-- 2. Solar AMC & Cleaning Card -->
         <div class="w-80 bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 flex flex-col justify-between shrink-0">
           <div>
             <img src="https://coldwellenergy.com/wp-content/uploads/2023/01/three-workers-cleaning-solar-panels.jpg?auto=format&fit=crop&w=800&q=80" alt="Solar Panel AMC and Cleaning" class="w-full h-48 object-cover">
@@ -171,7 +207,7 @@
           </div>
         </div>
 
-        <!-- 2. Electrical Maintenance Card -->
+        <!-- 3. Electrical Maintenance Card -->
         <div class="w-80 bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 flex flex-col justify-between shrink-0">
           <div>
             <img src="https://cdn.create.vista.com/api/media/small/14731059/stock-photo-electrician-peeling-off-wires?auto=format&fit=crop&w=800&q=80" alt="Electrical Panel Maintenance" class="w-full h-48 object-cover">
@@ -182,6 +218,7 @@
                 <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> Power Cable laying & terminations</li>
                 <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> Earth Pits as per IS standards</li>
                 <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> ACB/VCB servicing & Transformer testing</li>
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> ARC Flash Study</li>
               </ul>
             </div>
           </div>
@@ -190,7 +227,7 @@
           </div>
         </div>
 
-        <!-- 3. HVAC & Chillers Card -->
+        <!-- 4. HVAC & Chillers Card -->
         <div class="w-80 bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 flex flex-col justify-between shrink-0">
           <div>
             <img src="https://ipcs.com.co/assets/uploads/solution-6a33f24f45fe3.png?auto=format&fit=crop&w=800&q=80" alt="HVAC & Chillers Services" class="w-full h-48 object-cover">
@@ -209,7 +246,28 @@
           </div>
         </div>
 
-        <!-- 4. Infrastructure Services Card -->
+                                <!-- 5. Power System Studies Card -->
+        <div class="w-80 bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 flex flex-col justify-between shrink-0" aria-hidden="true">
+          <div>
+            <img src="http://synergyengineering.com/uploads/slider/219bd6b6ac82b40486fd76c2f08994159f1932af.jpeg?auto=format&fit=crop&w=800&q=80" alt="Power System Studies" class="w-full h-48 object-cover">
+            <div class="p-5">
+              <h3 class="font-bold text-lg text-slate-900 mb-3">Power System Studies</h3>
+              <ul class="text-xs text-slate-600 space-y-2 mb-4">
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> Short Circuit Analysis</li>
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> Relay Coordination.</li>
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> Dynamic Motor Starting Study</li>
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> Transient Analysis</li>
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> System Stability study</li>
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> Reliability Study</li>
+              </ul>
+            </div>
+          </div>
+          <div class="p-5 pt-0">
+            <a href="https://wa.me/918007717684?text=I%20want%20to%20inquire%20about%20Power%20System%20Studies" target="_blank" class="block text-center bg-slate-900 hover:bg-slate-800 text-white font-semibold px-6 py-3 rounded-lg text-xs transition">Inquire for Power System Studies</a>
+          </div>
+        </div>
+
+        <!-- 6. Infrastructure Services Card -->
         <div class="w-80 bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 flex flex-col justify-between shrink-0">
           <div>
             <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=194,fit=crop,trim=97.72762645914398;16.27906976744186;97.72762645914398;0/Yle4a8y4M0Hy3XKZ/turbo-fan-with-transparent-sheet-mnl4xQ002quynMXR.jpg?auto=format&fit=crop&w=800&q=80" alt="Infrastructure Services" class="w-full h-44 object-cover">
@@ -229,7 +287,7 @@
           </div>
         </div>
 
-        <!-- 5. UPS Power Systems Card -->
+        <!-- 6. UPS Power Systems Card -->
         <div class="w-80 bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 flex flex-col justify-between shrink-0">
           <div>
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQw2SuYP5y30zKTyq6zM8PkXlpC9q1AbZvhTrLP97dpHPKRMEvnX74YBl8f&s=10.png?auto=format&fit=crop&w=800&q=80" alt="UPS Power Systems" class="w-full h-44 object-cover">
@@ -249,7 +307,25 @@
 
         <!-- ================= CARD SET 2 (DUPLICATED FOR SEAMLESS LOOP) ================= -->
 
-        <!-- 1. Solar AMC & Cleaning Card -->
+                <!-- 1. Transformer Maintenance Card -->
+        <div class="w-80 bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 flex flex-col justify-between shrink-0" aria-hidden="true">
+          <div>
+            <img src="https://5.imimg.com/data5/SELLER/Default/2021/11/TV/XW/BP/58482/630-kva-distribution-transformer-1000x1000.JPG?auto=format&fit=crop&w=800&q=80" alt="Transformer Maintenance" class="w-full h-48 object-cover">
+            <div class="p-5">
+              <h3 class="font-bold text-lg text-slate-900 mb-3">Transformer Maintenance</h3>
+              <ul class="text-xs text-slate-600 space-y-2 mb-4">
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> Transformer Maintenance, Testing & Oil Filtrations</li>
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> OLTC oil filtrations with BDV Test</li>
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> Transformer Voltage ratio test, Magnetic balance test, Magnetizing current test, vector group test & insulation resistance test</li>
+              </ul>
+            </div>
+          </div>
+          <div class="p-5 pt-0">
+            <a href="https://wa.me/918007717684?text=I%20want%20to%20inquire%20about%20Transformer%20Maintenance" target="_blank" class="block text-center bg-slate-900 hover:bg-slate-800 text-white font-semibold px-6 py-3 rounded-lg text-xs transition">Inquire for Transformer Maintenance</a>
+          </div>
+        </div>
+
+        <!-- 2. Solar AMC & Cleaning Card -->
         <div class="w-80 bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 flex flex-col justify-between shrink-0" aria-hidden="true">
           <div>
             <img src="https://coldwellenergy.com/wp-content/uploads/2023/01/three-workers-cleaning-solar-panels.jpg?auto=format&fit=crop&w=800&q=80" alt="Solar Panel AMC and Cleaning" class="w-full h-48 object-cover">
@@ -270,7 +346,7 @@
           </div>
         </div>
 
-        <!-- 2. Electrical Maintenance Card -->
+        <!-- 3. Electrical Maintenance Card -->
         <div class="w-80 bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 flex flex-col justify-between shrink-0" aria-hidden="true">
           <div>
             <img src="https://cdn.create.vista.com/api/media/small/14731059/stock-photo-electrician-peeling-off-wires?auto=format&fit=crop&w=800&q=80" alt="Electrical Panel Maintenance" class="w-full h-48 object-cover">
@@ -280,7 +356,8 @@
                 <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> LT/HT Panel & APFC maintenance</li>
                 <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> Power Cable laying & terminations</li>
                 <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> Earth Pits as per IS standards</li>
-                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> ACB/VCB servicing & Transformer testing</li>
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> ACB/VCB servicing</li>
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> ARC Flash Study</li>
               </ul>
             </div>
           </div>
@@ -289,7 +366,7 @@
           </div>
         </div>
 
-        <!-- 3. HVAC & Chillers Card -->
+        <!-- 4. HVAC & Chillers Card -->
         <div class="w-80 bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 flex flex-col justify-between shrink-0" aria-hidden="true">
           <div>
             <img src="https://ipcs.com.co/assets/uploads/solution-6a33f24f45fe3.png?auto=format&fit=crop&w=800&q=80" alt="HVAC & Chillers Services" class="w-full h-48 object-cover">
@@ -308,7 +385,28 @@
           </div>
         </div>
 
-        <!-- 4. Infrastructure Services Card -->
+                                        <!-- 5. Power System Studies Card -->
+        <div class="w-80 bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 flex flex-col justify-between shrink-0" aria-hidden="true">
+          <div>
+            <img src="http://synergyengineering.com/uploads/slider/219bd6b6ac82b40486fd76c2f08994159f1932af.jpeg?auto=format&fit=crop&w=800&q=80" alt="Power System Studies" class="w-full h-48 object-cover">
+            <div class="p-5">
+              <h3 class="font-bold text-lg text-slate-900 mb-3">Power System Studies</h3>
+              <ul class="text-xs text-slate-600 space-y-2 mb-4">
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> Short Circuit Analysis</li>
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> Relay Coordination.</li>
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> Dynamic Motor Starting Study</li>
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> Transient Analysis</li>
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> System Stability study</li>
+                <li><i class="fa-solid fa-check text-amber-500 mr-1.5"></i> Reliability Study</li>
+              </ul>
+            </div>
+          </div>
+          <div class="p-5 pt-0">
+            <a href="https://wa.me/918007717684?text=I%20want%20to%20inquire%20about%20Power%20System%20Studies" target="_blank" class="block text-center bg-slate-900 hover:bg-slate-800 text-white font-semibold px-6 py-3 rounded-lg text-xs transition">Inquire for Power System Studies</a>
+          </div>
+        </div>
+
+        <!-- 6. Infrastructure Services Card -->
         <div class="w-80 bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 flex flex-col justify-between shrink-0" aria-hidden="true">
           <div>
             <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=194,fit=crop,trim=97.72762645914398;16.27906976744186;97.72762645914398;0/Yle4a8y4M0Hy3XKZ/turbo-fan-with-transparent-sheet-mnl4xQ002quynMXR.jpg?auto=format&fit=crop&w=800&q=80" alt="Infrastructure Services" class="w-full h-44 object-cover">
@@ -328,7 +426,7 @@
           </div>
         </div>
 
-        <!-- 5. UPS Power Systems Card -->
+        <!-- 6. UPS Power Systems Card -->
         <div class="w-80 bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 flex flex-col justify-between shrink-0" aria-hidden="true">
           <div>
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQw2SuYP5y30zKTyq6zM8PkXlpC9q1AbZvhTrLP97dpHPKRMEvnX74YBl8f&s=10.png?auto=format&fit=crop&w=800&q=80" alt="UPS Power Systems" class="w-full h-44 object-cover">
@@ -342,7 +440,7 @@
             </div>
           </div>
           <div class="p-5 pt-0">
-            <a href="https://wa.me/918007717684?text=I%20want%20to%20inquire%20about%20UPS%20Systems" target="_blank" class="block text-center bg-slate-900 hover:bg-slate-800 text-white font-semibold px-6 py-3 rounded-lg text-xs transition">Inquire for UPS Systems</a>
+            <a href="https://wa.me/918007717684?text=I%20want%20to%20inquire%20about%20UPS%20Systems" target="_blank" class="block text-center bg-slate-900 hover:bg-slate-800 text-white font-semibold py-2 rounded-lg text-xs transition">Inquire for UPS Systems</a>
           </div>
         </div>
 
@@ -361,7 +459,7 @@
         </div>
         <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
           <span class="block text-xs text-slate-500 font-semibold uppercase">PAN Number</span>
-          <span class="block text-sm font-bold text-slate-800 mt-1">ASKPT6880H</span>
+          <span class="block text-sm font-bold text-slate-800 mt-1">ASKPT6880H1ZZ</span>
         </div>
         <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
           <span class="block text-xs text-slate-500 font-semibold uppercase">Electrical License</span>
@@ -466,5 +564,100 @@
       window.open(`https://wa.me/918007717684?text=${text}`, '_blank');
     }
   </script>
+  <!-- GLOBAL SCRIPTS -->
+  <script>
+    // Mobile menu toggle
+    function toggleMenu() {
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (mobileMenu) {
+        mobileMenu.classList.toggle('hidden');
+      }
+    }
+
+    // WhatsApp form submission handler
+    function sendToWhatsApp(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value;
+      const service = document.getElementById('service').value;
+      const message = document.getElementById('message').value;
+
+      const text = `Hello Veerbhadra Engineers,%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Service:* ${encodeURIComponent(service)}%0A*Message:* ${encodeURIComponent(message)}`;
+      window.open(`https://wa.me/918007717684?text=${text}`, '_blank');
+    }
+
+    // SWIPE, DESKTOP HOVER PAUSE & AUTO-LOOP ENGINE
+    document.addEventListener("DOMContentLoaded", () => {
+      const viewport = document.getElementById("marqueeViewport");
+      const track = document.getElementById("marqueeTrack");
+      if (!viewport || !track) return;
+
+      let isInteracting = false;
+      let startX, scrollLeft;
+      let resumeTimeout = null;
+      const speed = 1; // Auto-scroll speed
+
+      // Smooth continuous auto-scroll loop
+      function autoScroll() {
+        if (!isInteracting) {
+          viewport.scrollLeft += speed;
+          
+          // Infinite loop reset point
+          if (viewport.scrollLeft >= track.scrollWidth / 2) {
+            viewport.scrollLeft = 0;
+          }
+        }
+        requestAnimationFrame(autoScroll);
+      }
+
+      // --- DESKTOP HOVER PAUSE HANDLERS ---
+      viewport.addEventListener("mouseenter", () => {
+        isInteracting = true; // Pauses marquee on hover
+        clearTimeout(resumeTimeout);
+      });
+
+      viewport.addEventListener("mouseleave", () => {
+        isInteracting = false; // Resumes marquee on cursor leave
+      });
+
+      // --- MOBILE TOUCH & DRAG HANDLERS ---
+      viewport.addEventListener("touchstart", (e) => {
+        isInteracting = true;
+        clearTimeout(resumeTimeout);
+        startX = e.touches[0].pageX - viewport.offsetLeft;
+        scrollLeft = viewport.scrollLeft;
+      }, { passive: true });
+
+      viewport.addEventListener("touchmove", (e) => {
+        if (!isInteracting) return;
+        const x = e.touches[0].pageX - viewport.offsetLeft;
+        const walk = (x - startX) * 1.5;
+        viewport.scrollLeft = scrollLeft - walk;
+
+        // Boundary handler during swipe
+        if (viewport.scrollLeft >= track.scrollWidth / 2) {
+          viewport.scrollLeft -= track.scrollWidth / 2;
+          startX = e.touches[0].pageX - viewport.offsetLeft;
+          scrollLeft = viewport.scrollLeft;
+        } else if (viewport.scrollLeft <= 0) {
+          viewport.scrollLeft += track.scrollWidth / 2;
+          startX = e.touches[0].pageX - viewport.offsetLeft;
+          scrollLeft = viewport.scrollLeft;
+        }
+      }, { passive: true });
+
+      viewport.addEventListener("touchend", () => {
+        clearTimeout(resumeTimeout);
+        // Resumes auto-scroll 0.45 seconds after user lets go on mobile
+        resumeTimeout = setTimeout(() => {
+          isInteracting = false;
+        }, 450);
+      }, { passive: true });
+
+      // Start the engine
+      autoScroll();
+    });
+  </script>
+</body>
+</html>
 </body>
 </html>
